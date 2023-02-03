@@ -1,0 +1,59 @@
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.exe.config
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.exe
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.pdb
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignColors.dll
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignColors.pdb
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\MainWindow.g.cs
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\App.g.cs
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard_MarkupCompile.cache
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard_MarkupCompile.lref
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\App.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\MainWindow.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.g.resources
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.Properties.Resources.resources
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.GenerateResource.cache
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.exe
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.pdb
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csprojResolveAssemblyReference.cache
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowBaseStation.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowBaseStation.g.cs
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowClassMaster.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowClassMaster.g.cs
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowMappingKeypadBaseStationView.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowMappingKeypadBaseStationView.g.cs
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowStudentManagement.baml
+D:\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowStudentManagement.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.exe.config
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.exe
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\EVotingDashBoard.pdb
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignColors.dll
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignColors.pdb
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.AssemblyReference.cache
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.SuggestedBindingRedirects.cache
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowBaseStation.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowClassMaster.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowMappingKeypadBaseStationView.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowStudentManagement.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\MainWindow.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowBaseStation.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowClassMaster.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowMappingKeypadBaseStationView.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\WindowStudentManagement.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\App.g.cs
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard_MarkupCompile.cache
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard_MarkupCompile.lref
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\App.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\MainWindow.baml
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.g.resources
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.Properties.Resources.resources
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.GenerateResource.cache
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.CoreCompileInputs.cache
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.csproj.CopyComplete
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.exe
+F:\Senses Data Backup Last Day\Code\SVN Backup\branches\Development\eVoting\EVotingDashBoard\EVotingDashBoard\obj\Debug\EVotingDashBoard.pdb

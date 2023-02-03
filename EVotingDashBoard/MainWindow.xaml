@@ -1,0 +1,379 @@
+﻿<Window x:Class="EVotingDashBoard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EVotingDashBoard"
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="MainWindow" Height="900" Width="1500" WindowState="Maximized" Background="#03a9f4" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="10"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+     
+        FontFamily="{DynamicResource MaterialDesignFont}" WindowStyle="None">
+
+    <Window.Resources>
+        <Storyboard x:Key="sbShowLeftMenuHide" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,10" To="-300,0,0,10"  DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbShowLeftMenuShow" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-300,0,0,10" To="0,0,0,10" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+
+        <Storyboard x:Key="sbShowRightMenuHide" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,0,-300,0"  DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbShowRightMenuShow" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,-300,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Grid x:Name="mainGird">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="rowHeader" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Center">
+                <Button x:Name="btnStatus"  Content="Status"  Style="{StaticResource MaterialDesignFloatingActionAccentButton}" VerticalAlignment="Stretch" ToolTip="MaterialDesignFloatingActionAccentButton" Click="btnStatus_Click"/>
+            </StackPanel>-->
+
+                <materialDesign:Card x:Name="cardHeader"  Grid.Column="1" Padding="20" Margin="0" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Width="200" Source="images/LogoSandeepJadhav.png"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="30" FontFamily="Comic Sans MS">My Dashboard</TextBlock>
+                        </StackPanel>
+
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center">
+                                <Button x:Name="btnStatus"  Content="Status"  Style="{StaticResource MaterialDesignFloatingActionAccentButton}" VerticalAlignment="Stretch" BorderBrush="White" BorderThickness="5" ToolTip="Status" Click="btnStatus_Click"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,5" VerticalAlignment="Center">
+                                <Button Click="Button_Click" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" ToolTip="Close">
+                                    <materialDesign:PackIcon Kind="Close" />
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Card>
+
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="gridLeft" Grid.Column="0" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DockPanel x:Name="dockPanelLeft" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="300" Margin="0,0,0,10">
+                        <StackPanel>
+                            <materialDesign:Card  MouseLeftButtonDown="CardClick" Padding="25" Margin="10,10,10,0"   x:Name="cardBaseStation" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Base Station</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Base Station Details</TextBlock>
+
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card MouseLeftButtonDown="CardClick" Padding="25" Margin="10,10,10,0"   x:Name="CardVoterMapping" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voter Mapping</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Voter Mapping - Base Station</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card MouseLeftButtonDown="CardClick" Padding="25" Margin="10,10,10,0"   x:Name="CardClassInfo" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Class Info</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Class</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card MouseLeftButtonDown="CardClick" Padding="25" Margin="10,10,10,0"   x:Name="CardStudentManagement" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Student Management</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Students</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card7" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Question Bank</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Questions</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card4" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voting Responses</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Voting Responses</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card8" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Settings</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Start the Test</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card9" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Credits</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Credits</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+
+
+                        </StackPanel>
+                    </DockPanel>
+                    <Button Grid.Column="1" Content="{materialDesign:PackIcon AirplaneTakeoff}" Name="btnHideShow" ToolTip="Icon" Margin="0,0,0,10" Width="50" Height="50" VerticalAlignment="Bottom" Click="Button_Click_1"/>
+                </Grid>
+
+                <!--<Border Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Background="Transparent" >
+                <Grid>
+                    -->
+                <!-- Grid contents here -->
+                <!--
+                </Grid>
+            </Border>-->
+
+                <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Background="Transparent" >
+
+
+                </Grid>
+
+                <Grid x:Name="gridRight" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DockPanel x:Name="dockPanelRight" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Margin="0,0,0,0">
+                        <StackPanel>
+                            <materialDesign:Card Height="auto"  Padding="25" Margin="10,10,10,0"   x:Name="Card12" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Start Test</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Start the Test</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card13" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voter Mapping</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Voter Mapping - Base Station</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card14" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voting Responses</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Voting Responses</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card15" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Class Info</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Class</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                            <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card16" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Student Management</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Students</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+
+
+
+                        </StackPanel>
+                    </DockPanel>
+                    <Button Grid.Column="0" Content="{materialDesign:PackIcon AirplaneTakeoff}" Name="btnHideShowRight" ToolTip="Icon" Margin="0,10,0,0" Width="50" Height="50" VerticalAlignment="Center" Click="btnHideShowRight_Click"/>
+                </Grid>
+            </Grid>
+            <!--<DockPanel x:Name="MyGrid" >
+            <materialDesign:Card  Padding="25" Margin="80,0"   x:Name="Card1" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="30" FontFamily="Comic Sans MS" >E-Voting System</TextBlock>
+                </StackPanel>
+            </materialDesign:Card>
+        </DockPanel>
+        <StackPanel HorizontalAlignment="Right" Margin="5,10,5,0">
+            <Button Click="Button_Click"
+  Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+                <materialDesign:PackIcon Kind="Close" />
+            </Button>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Margin="5,10,5,0">
+            <Button x:Name="btnStatus" Margin="5" Content="Status"
+  Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+  ToolTip="MaterialDesignFloatingActionAccentButton">
+            </Button>
+        </StackPanel>
+
+
+        <Grid x:Name="gridLeft" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel x:Name="dockPanelLeft" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="300" Margin="0,0,0,10">
+                <StackPanel>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card2" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Base Station</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Base Station Details</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card3" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voter Mapping</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Voter Mapping - Base Station</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card4" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voting Responses</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Voting Responses</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card5" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Class Info</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Class</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card6" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Student Management</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Students</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card7" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Question Bank</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Questions</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card8" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Start Test</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Start the Test</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="25" Margin="10,10,10,0"   x:Name="Card9" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Settings</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Change Settings</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+           
+
+                </StackPanel>
+            </DockPanel>
+            <Button Grid.Column="1" Content="{materialDesign:PackIcon AirplaneTakeoff}" Name="btnHideShow" ToolTip="Icon" Margin="0,0,0,10" Width="50" Height="50" VerticalAlignment="Bottom" Click="Button_Click_1"/>
+        </Grid>
+
+
+        <Grid x:Name="GridCenter" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="AntiqueWhite" Height="700" Width="900" >
+                <TextBlock>First</TextBlock>
+                <TextBlock>and the second</TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="gridRight" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel x:Name="dockPanelRight" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Margin="0,0,0,0">
+                <StackPanel>
+                    <materialDesign:Card Height="auto"  Padding="25" Margin="10,10,10,0"   x:Name="Card12" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Base Station</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Base Station Details</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card13" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voter Mapping</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Voter Mapping - Base Station</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card14" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Voting Responses</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">View Voting Responses</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card15" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Class Info</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Class</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Height="auto" Padding="25" Margin="10,10,10,0"   x:Name="Card16" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" >Student Management</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="10" Visibility="Visible">Add Remove Students</TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    
+                 
+
+                </StackPanel>
+            </DockPanel>
+            <Button Grid.Column="0" Content="{materialDesign:PackIcon AirplaneTakeoff}" Name="btnHideShowRight" ToolTip="Icon" Margin="0,10,0,0" Width="50" Height="50" VerticalAlignment="Center" Click="btnHideShowRight_Click"/>
+        </Grid>
+
+        <DockPanel x:Name="MyGridBottom" VerticalAlignment="Bottom" Width="300" Margin="0,100,0,0">
+            <materialDesign:Card  Padding="25" Margin="10,10,10,0"   x:Name="CardBottom" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="Transparent" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="12" >copyright © 2019-2020</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="12">Sandeep Jadhav Softwares Pune</TextBlock>
+                </StackPanel>
+            </materialDesign:Card>
+        </DockPanel>-->
+
+
+        </Grid>
+        <DockPanel x:Name="MyGridBottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="300" Margin="0,0,0,0">
+            <materialDesign:Card  Padding="10" Margin="10,10,10,0"   x:Name="CardBottom" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="Transparent" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="12" >
+                        <Hyperlink NavigateUri="http://profile.sandeepjadhav.com/" RequestNavigate="Hyperlink_RequestNavigate">Visit Here </Hyperlink>                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}"  Width="auto" FontSize="12">Sandeep Jadhav Softwares Pune</TextBlock>
+                </StackPanel>
+            </materialDesign:Card>
+        </DockPanel>
+    </Grid>
+
+
+</Window>

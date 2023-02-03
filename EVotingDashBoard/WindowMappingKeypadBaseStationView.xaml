@@ -1,0 +1,104 @@
+﻿<Window x:Class="EVotingDashBoard.WindowMappingKeypadBaseStationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowMappingKeypadBaseStationView" Height="650" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="White" ResizeMode="CanResize" Topmost="True" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="10"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation x:Name="AniOpacity" Storyboard.TargetProperty="Opacity" From=".5" To="1" Duration="00:00:1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card x:Name="cardHeader" Grid.Row="0"  Grid.Column="1" Padding="15" Margin="0" materialDesign:ShadowAssist.ShadowDepth="Depth5" Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Stretch" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="30" FontFamily="Comic Sans MS">Keypad Base Station Mapping</TextBlock>
+            </StackPanel>
+        </materialDesign:Card>
+        <StackPanel  HorizontalAlignment="Right" Margin="5,15,5,0"  VerticalAlignment="Top">
+            <Button x:Name="btnClose" Click="btnClose_Click" Width="35" Height="35"  Background="White" Foreground="{DynamicResource PrimaryHueDarkBrush}" Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+                <materialDesign:PackIcon Kind="Close" />
+            </Button>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <!--<Border BorderThickness="1" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="10">-->
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox x:Name="txtBaseID" Grid.Row="0" Grid.Column="0" Margin="5,5,10,5" materialDesign:HintAssist.Hint="Base Id" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="txtModel" Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" materialDesign:HintAssist.Hint="Model" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="txtKeypadSN" Grid.Row="1" Grid.Column="0"  Margin="5,5,10,5" materialDesign:HintAssist.Hint="Keypad SN" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox x:Name="keypadId" Grid.Row="1" Grid.Column="1" Margin="10,5,5,5" materialDesign:HintAssist.Hint="Keypad Id" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="txtVersion" Grid.Row="2" Grid.Column="0" Margin="5,5,10,5" materialDesign:HintAssist.Hint="Version" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="txtRemarks" Grid.Row="2" Grid.Column="1" Margin="10,5,5,5" materialDesign:HintAssist.Hint="Remarks" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,20,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="Save" ToolTip="Resource name: MaterialDesignRaisedButton"/>
+
+                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="Reset" ToolTip="Resource name: MaterialDesignRaisedButton"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <ListView ItemsSource="{Binding Items1}">
+                        <ListView.View>
+                            <GridView x:Name="gridViewClassMaster">
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassID}" Header="Id" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassName}" Header="Base Id" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassDivision}" Header="Keypad Id" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassID}" Header="Keypad SN" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassName}" Header="Model" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ClassDivision}" Header="Software Version" />
+                                    <GridViewColumn Header="Operation">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content=" Remove " CommandParameter="{Binding}" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
